@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bootstrap.min.css">
-    <title>Botón de Pánico {{ getHostByName(getHostName()) }}</title>
+    <title>Botón de Pánico {{ $ip }}</title>
     <!-- Styles -->
     <style>
         body {
@@ -23,6 +22,9 @@
             /*parpadear tenuemente*/
             animation: parpadeo 1s infinite;
             cursor: pointer;
+        }
+        .redondo:hover{
+            animation: none;
         }
 
         @keyframes parpadeo {
@@ -46,18 +48,13 @@
 </head>
 
 <body>
-    <!--ver ip privada de la maquina-->
-    <?php
-    $ip_maquina = getHostByName(getHostName());
-    ?>
-
     <div class="container">
         <div class="row justify-content-between pt-3 text-white">
             <div class="col-8">
-                <span class="fw-bolder">IP: {{ $ip_maquina }}</span> <br>
+                <span class="fw-bolder">IP: {{ $ip }}</span> <br>
                 <span class="">Sala 06, digitador</span> <br>
                 <span class="fw-bolder">
-                    @if ($ip_maquina == $ip_maquina)
+                    @if ($ip == $ip)
                         VÁLIDADO
                     @else
                         MÁQUINA NO VÁLIDA
@@ -66,12 +63,12 @@
             </div>
 
             <div class="col-4">
-                @if ($ip_maquina == $ip_maquina)
+                @if ($ip == $ip)
                     <button class="btn btn-danger redondo">ALERTAR</button>
                 @endif
             </div>
-            <div class="col-12 text-center fw-light fs-15">
-                <span>Desarrollado por el equipo de informática de la Corte de Apelaciones de Santiago</span>
+            <div class="col-12 text-center fw-light">
+                <span class="fs-15">Desarrollado por el equipo de informática de la Corte de Apelaciones de Santiago</span>
             </div>
         </div>
     </div>
