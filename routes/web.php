@@ -1,18 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ConsultarController;
-use App\Http\Controllers\BotonPanicoController;
+use App\Http\Controllers\VisorController;
+use App\Http\Controllers\BotonController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::controller(BotonPanicoController::class)->group(function(){
-    Route::get('/boton-panico', 'index');
-    Route::get('/boton-panico/avisar', 'avisar');
+Route::controller(BotonController::class)->group(function(){
+    Route::get('/boton', 'index');
+    Route::get('/boton/avisar', 'avisar');
 });
 
 
 
-Route::get('/vigilar', [ConsultarController::class, 'index']);
+Route::get('/visor', [VisorController::class, 'index']);
