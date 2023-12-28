@@ -35,7 +35,7 @@
             </a>
         </div>
         <hr class="horizontal dark mt-0">
-        <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+        <div class="collapse navbar-collapse w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link  active" href="../pages/dashboard.html">
@@ -189,7 +189,14 @@
     <script src="{{asset('datatables/datatables.min.js')}}"></script>
 
 <script>
-    new DataTable('#example');
+var url = "{{asset('datatables/es-ES.json')}}"; // Adjust path if needed
+var table = new DataTable('#reportes', {
+    language: {
+        url: url,
+    },
+    pageLength: 20,
+
+});
 </script>
     <script src="{{ asset('js/core/popper.min.js') }}"></script>
     <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>

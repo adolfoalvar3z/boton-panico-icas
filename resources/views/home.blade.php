@@ -11,16 +11,16 @@
                                 <h6>Authors table</h6>
                             </div>
                             <div class="card-body px-0 pt-0 pb-2">
-                                <div class="table-responsive p-0">
-                                    <table id="example" class="table table-striped" style="width:100%">
+                                <div class="table-responsive px-5">
+                                    <table id="reportes" class="table table-striped" style="width:100%">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
+                                                <th>ID</th>
+                                                <th>IP Reporte</th>
+                                                <th>IP Asiste</th>
+                                                <th>Fecha Reporte</th>
+                                                <th>Fecha Actualización</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>

@@ -6,9 +6,8 @@ use App\Http\Controllers\BotonController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'LoginController::showLoginForm');
+
 
 Route::controller(BotonController::class)->group(function () {
     Route::get('/boton', 'index');
