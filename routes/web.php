@@ -4,18 +4,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VisorController;
 use App\Http\Controllers\BotonController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Auth\LoginController;
+use Illuminate\Support\Facades\Auth;
 
-Route::get('/', 'LoginController::showLoginForm');
-
+Route::get('/', function () {
+    return view('auth.login');
+})->middleware('guest');
 
 Route::controller(BotonController::class)->group(function () {
-    Route::get('/boton', 'index');
+    Route::get('/boton', 'index')->name('boton');
     Route::get('/boton/avisar', 'avisar');
 });
 
-Route::get('/visor', [VisorController::class, 'index']);
+Route::get('/visor', [VisorController::class, 'index'])->name('visor');
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('home');
