@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,7 +23,7 @@
 <body class="">
     <main class="main-content  mt-0">
         <section>
-            <div class="page-header min-vh-75">
+            <div class="page-header min-vh-80">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
@@ -58,8 +59,6 @@
                                             @enderror
                                         </div>
                                         <div class="form-check form-switch">
-
-
                                             <input class="form-check-input" type="checkbox" name="remember"
                                                 id="rememberMe" {{ old('remember') ? 'checked' : '' }}>
 
