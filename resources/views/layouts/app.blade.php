@@ -21,17 +21,17 @@
     <link href="{{ asset('datatables/datatables.min.css') }}" rel="stylesheet">
     <!-- CSS Files -->
     <link id="pagestyle" href=" {{ asset('css/soft-ui-dashboard.css') }}" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
     <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 "
         id="sidenav-main">
-        <div class="sidenav-header">
+        <div class="text-center">
             <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand m-0" href="#" target="_blank">
-                <img src="{{ asset('img/logo-ct-dark.png') }}" class="navbar-brand-img h-100" alt="main_logo">
+                <img src="{{ asset('img/logo-poder-judicial.png') }}" class="navbar-brand-img h-100" alt="main_logo">
+                <br>
                 <span class="ms-1 font-weight-bold">Botón de Pánico ICAS</span>
             </a>
         </div>
@@ -39,27 +39,27 @@
         <div class="collapse navbar-collapse w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="../pages/dashboard.html">
+                    <a class="nav-link active" href="{{route('home')}}">
                         <div>
                             <i class="fas fa-tachometer-alt fa-2xl"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Dashboard</span>
+                        <span class="nav-link-text ms-1"> Reportes</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../pages/tables.html">
+                    <a class="nav-link" href="{{route('boton')}}">
                         <div>
-                            <i class="fas fa-tachometer-alt fa-2xl"></i>
+                            <i class="fas fa-play fa-2xl"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Tables</span>
+                        <span class="nav-link-text ms-1"> Botones</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../pages/billing.html">
+                    <a class="nav-link" href="{{route('visor')}}">
                         <div>
-                            <i class="fas fa-tachometer-alt fa-2xl"></i>
+                            <i class="fas fa-eye fa-2xl"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Billing</span>
+                        <span class="nav-link-text ms-1"> Visores</span>
                     </a>
                 </li>
             </ul>
@@ -87,6 +87,15 @@
                                 Visión Gendarmería
                             </a>
                         </li>
+                        <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                              <div class="sidenav-toggler-inner">
+                                <i class="sidenav-toggler-line"></i>
+                                <i class="sidenav-toggler-line"></i>
+                                <i class="sidenav-toggler-line"></i>
+                              </div>
+                            </a>
+                          </li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
@@ -151,7 +160,7 @@
 
 <script>
 var url = "{{asset('datatables/es-ES.json')}}"; // Adjust path if needed
-var table = new DataTable('#reportes', {
+var table = new DataTable('#example', {
     language: {
         url: url,
     },

@@ -7,10 +7,6 @@
     <title>Botón de Pánico {{ $ip }}</title>
     <!-- Styles -->
     <style>
-        body {
-            background: linear-gradient(to bottom, #b3d9ff, #0099cc);
-        }
-
         .redondo {
             /*hacer boton redondo*/
             border-radius: 100%;
@@ -48,30 +44,7 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row justify-content-between pt-3 text-white">
-            <div class="col-8">
-                <span class="fw-bolder">IP: {{ $ip }}</span> <br>
-                <span class="">Sala 06, digitador</span> <br>
-                <span class="fw-bolder">
-                    @if ($ip == $ip)
-                        VÁLIDADO
-                    @else
-                        MÁQUINA NO VÁLIDA
-                    @endif
-                </span>
-            </div>
-
-            <div class="col-4">
-                @if ($ip == $ip)
-                    <button class="btn btn-danger redondo">ALERTAR</button>
-                @endif
-            </div>
-            <div class="col-12 text-center fw-light">
-                <span class="fs-15">Desarrollado por el equipo de informática de la Corte de Apelaciones de Santiago</span>
-            </div>
-        </div>
-    </div>
+<livewire:mostrar-boton/>
 </body>
 
 </html>
