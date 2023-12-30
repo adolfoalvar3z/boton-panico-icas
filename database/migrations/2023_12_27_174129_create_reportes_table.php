@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('reportes', function (Blueprint $table) {
             $table->id();
-            $table->ipAddress('ip_reporta')->unique();
-            $table->ipAddress('ip_asiste')->unique()->nullable(true);
+            $table->ipAddress('ip_reporta');
+            $table->string('nombre_maquina_reporta', 100);
+            $table->ipAddress('ip_asiste')->nullable(true);
+            $table->string('nombre_maquina_asiste', 100)->nullable(true);
             $table->enum('status', ['alerta', 'asistencia', 'finalizado'])->default('alerta');
             $table->timestamps();
-
         });
     }
 

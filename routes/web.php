@@ -5,6 +5,7 @@ use App\Http\Controllers\VisorController;
 use App\Http\Controllers\BotonController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Livewire;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -12,7 +13,7 @@ Route::get('/', function () {
 
 Route::controller(BotonController::class)->group(function () {
     Route::get('/boton', 'index')->name('boton');
-    Route::get('/boton/avisar', 'avisar');
+    Route::post('/boton/reportar', 'reportar')->name('reportar');
 });
 
 Route::get('/visor', [VisorController::class, 'index'])->name('visor');

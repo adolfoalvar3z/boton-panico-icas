@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Boton;
+use App\Models\Reporte;
 
 class MostrarBoton extends Component
 {
@@ -11,6 +12,8 @@ class MostrarBoton extends Component
     {
         $ip = $_SERVER['REMOTE_ADDR'];
         $boton = Boton::where('ip', $ip)->first();
-        return view('livewire.mostrar-boton', compact('boton', 'ip'));
+        $reporte = Reporte::select('id','status')->where('ip_reporta', $ip)->latest()->first();
+        return view('livewire.mostrar-boton', compact('boton', 'ip', 'reporte'));
     }
+
 }

@@ -14,7 +14,6 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href=" {{ asset('css/soft-ui-dashboard.css') }}" rel="stylesheet" />
-    @livewireStyles
 </head>
 
 <body>
@@ -31,22 +30,19 @@
                             Servicios -
                         </div>
                     </div>
+
                     <div class="col-lg-6">
                         <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                             <li class="nav-item">
                                 <a href="{{ url('/') }}" class="nav-link text-muted" target="_blank">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted"
-                                    target="_blank">About Us</a>
+                                <a href="{{ route('boton') }}" class="nav-link text-muted" target="_blank">Vista
+                                    Botón</a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://www.creative-tim.com/blog" class="nav-link text-muted"
-                                    target="_blank">Blog</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted"
-                                    target="_blank">License</a>
+                                <a href="https://www.cortesantiago.cl" class="nav-link text-muted" target="_blank">Sitio
+                                    ICAS</a>
                             </li>
                         </ul>
                     </div>
@@ -54,11 +50,11 @@
             </div>
         </footer>
     </div>
+
     <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
-    @livewireScripts
     <!-- Github buttons -->
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="{{ asset('js/soft-ui-dashboard.min.js') }}'"></script>
+
 </body>
 
 </html>
