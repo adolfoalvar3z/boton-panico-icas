@@ -27,7 +27,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($reportes as $reporte)
-                                    <tr>
+                                    <tr class="fw-bold {{ $reporte->status == 'alerta' ? 'parpadeos' : '' }}">
                                         <td class="text-center">{{ $reporte->nombre_maquina_reporta }}</td>
                                         <td class="text-center">{{ $reporte->ip_reporta }}</td>
                                         <td class="text-center">
@@ -62,6 +62,7 @@
         </div>
     </div>
 </div>
+@script
 <script>
     window.onload = function() {
         var audioElement = document.getElementById('myAudio');
@@ -73,3 +74,4 @@
         audioElement.muted = false;
     }
 </script>
+@endscript
