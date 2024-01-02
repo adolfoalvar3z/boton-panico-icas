@@ -75,8 +75,6 @@
     </div>
 
     <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
-    <!-- Github buttons -->
-    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
 
 </body>
 
