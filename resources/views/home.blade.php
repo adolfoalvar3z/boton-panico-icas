@@ -8,7 +8,7 @@
                     <div class="col-12">
                         <div class="card mb-4">
                             <div class="card-header pb-0">
-                                <h6>Authors table</h6>
+                                <h6>Tabla de Reportes</h6>
                             </div>
                             <div class="card-body px-0 pt-0 pb-2">
                                 <div class="table-responsive p-5">
@@ -21,8 +21,8 @@
                                                 <th>Máquina Asiste</th>
                                                 <th>IP Asiste</th>
                                                 <th>Status</th>
-                                                <th>Fecha y Hora Reporte</th>
-                                                <th>Fecha y Hora Actualización</th>
+                                                <th>Hora y Fecha Reporte</th>
+                                                <th>Hora y Fecha Actualización</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -47,8 +47,8 @@
                                                 <th>Máquina Asiste</th>
                                                 <th>IP Asiste</th>
                                                 <th>Status</th>
-                                                <th>Fecha y Hora Reporte</th>
-                                                <th>Fecha y Hora Actualización</th>
+                                                <th>Hora y Fecha Reporte</th>
+                                                <th>Hora y Fecha Actualización</th>
                                             </tr>
                                         </tfoot>
                                     </table>

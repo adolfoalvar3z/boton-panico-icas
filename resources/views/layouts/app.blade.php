@@ -39,7 +39,7 @@
         <div class="collapse navbar-collapse w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{route('home')}}">
+                    <a class="nav-link active" href="{{ route('home') }}">
                         <div>
                             <i class="fas fa-tachometer-alt fa-2xl"></i>
                         </div>
@@ -47,7 +47,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('boton')}}">
+                    <a class="nav-link" href="{{ route('boton') }}">
                         <div>
                             <i class="fas fa-play fa-2xl"></i>
                         </div>
@@ -55,7 +55,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('visor')}}">
+                    <a class="nav-link" href="{{ route('visor') }}">
                         <div>
                             <i class="fas fa-eye fa-2xl"></i>
                         </div>
@@ -89,13 +89,13 @@
                         </li>
                         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                              <div class="sidenav-toggler-inner">
-                                <i class="sidenav-toggler-line"></i>
-                                <i class="sidenav-toggler-line"></i>
-                                <i class="sidenav-toggler-line"></i>
-                              </div>
+                                <div class="sidenav-toggler-inner">
+                                    <i class="sidenav-toggler-line"></i>
+                                    <i class="sidenav-toggler-line"></i>
+                                    <i class="sidenav-toggler-line"></i>
+                                </div>
                             </a>
-                          </li>
+                        </li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
@@ -125,7 +125,8 @@
                                         Salir
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
                                         @csrf
                                     </form>
                                 </div>
@@ -158,16 +159,16 @@
     <!--   Core JS Files   -->
     <script src="{{ asset('datatables/datatables.min.js') }}"></script>
 
-<script>
-var url = "{{asset('datatables/es-ES.json')}}"; // Adjust path if needed
-var table = new DataTable('#example', {
-    language: {
-        url: url,
-    },
-    pageLength: 20,
+    <script>
+        var url = "{{ asset('datatables/es-ES.json') }}"; // Adjust path if needed
+        var table = new DataTable('#example', {
+            language: {
+                url: url,
+            },
+            pageLength: 20,
 
-});
-</script>
+        });
+    </script>
     <script src="{{ asset('js/core/popper.min.js') }}"></script>
     <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/plugins/perfect-scrollbar.min.js') }}"></script>

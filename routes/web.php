@@ -5,18 +5,28 @@ use App\Http\Controllers\VisorController;
 use App\Http\Controllers\BotonController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
-use Livewire\Livewire;
+
 
 Route::get('/', function () {
     return view('auth.login');
 })->middleware('guest');
 
-Route::controller(BotonController::class)->group(function () {
-    Route::get('/boton', 'index')->name('boton');
-    Route::post('/boton/reportar', 'reportar')->name('reportar');
-});
+
+//cargar controlador de liveware
 
 Route::get('/visor', [VisorController::class, 'index'])->name('visor');
+Route::get('/boton', [BotonController::class, 'index'])->name('boton');
+
+//reportar
+Route::post('/boton/reportar', [BotonController::class,'reportar'])->name('reportar');
+
+//asistir reporte
+Route::put('/visor/{reporte}/asistir', [VisorController::class, 'asistir'])->name('visor.asistir');
+Route::put('/visor/{reporte}/finalizado', [VisorController::class, 'finalizado'])->name('visor.finalizado');
+
+
+//propiedades de botones
+Route::get('/listar-botones', [BotonController::class, 'index'])->name('listar-boton');
 
 Auth::routes();
 

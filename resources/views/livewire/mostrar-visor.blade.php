@@ -6,8 +6,6 @@
                 <h6>Dirección IP: {{ $ip }} - Estado:
                     {{ $visor != null ? 'Valido ✅' : 'Máquina no válida ❌' }}</h6>
             </div>
-
-
             <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-5">
                     @if ($visor != null)
@@ -21,7 +19,7 @@
                                     <th class="text-uppercase text-secondary text-center font-weight-bolder opacity-7">
                                         Estado</th>
                                     <th class="text-uppercase text-secondary text-center font-weight-bolder opacity-7">
-                                        Fecha y Hora</th>
+                                        Hora y Fecha</th>
                                     <th class="text-secondary opacity-7"></th>
                                 </tr>
                             </thead>
@@ -35,21 +33,36 @@
                                                 class="badge badge-sm bg-gradient-{{ $reporte->status == 'alerta' ? 'danger' : 'warning' }}">{{ $reporte->status }}
                                             </span>
                                             @if ($reporte->status == 'alerta')
-                                            <br>
-                                                <audio id="myAudio" autoplay loop >
-                                                    <source src="{{ asset('alarma.mp3') }}" type="audio/mpeg" preload="auto">
+                                                <br>
+                                                <audio id="myAudio" autoplay loop>
+                                                    <source src="{{ asset('alarma.mp3') }}" type="audio/mpeg"
+                                                        preload="auto">
                                                 </audio>
                                             @endif
                                         </td>
                                         <td class="text-center">{{ $reporte->created_at->format('H:i:s d-m-Y') }}</td>
 
-                                        <td class="align-middle">
-                                            <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                data-toggle="tooltip" data-original-title="Edit user">
-                                                <button type="submit" class="btn btn-primary">
+                                        <td class="align-middle text-center">
+                                            @if ($reporte->status == 'alerta')
+                                            <form action="{{route('visor.asistir', $reporte->id)}}" method="post">
+                                                @csrf
+                                                @method('put')
+                                                <button type="submit" class="btn btn-warning bg-gradient-warning">
                                                     Asistir
                                                 </button>
-                                            </a>
+                                            </form>
+                                            @endif
+
+                                            @if ($reporte->status == 'asistencia')
+                                            <form action="{{route('visor.finalizado', $reporte->id)}}" method="post">
+                                                @csrf
+                                                @method('put')
+                                                <button type="submit" class="btn btn-success bg-gradient-success">
+                                                    Finalizar Reporte
+                                                </button>
+                                            </form>
+                                            @endif
+
                                         </td>
                                     </tr>
                                 @endforeach
@@ -63,15 +76,15 @@
     </div>
 </div>
 @script
-<script>
-    window.onload = function() {
-        var audioElement = document.getElementById('myAudio');
-        audioElement.play();
-    }
+    <script>
+        window.onload = function() {
+            var audioElement = document.getElementById('myAudio');
+            audioElement.play();
+        }
 
-    function unmuteAudio() {
-        var audioElement = document.getElementById('myAudio');
-        audioElement.muted = false;
-    }
-</script>
+        function unmuteAudio() {
+            var audioElement = document.getElementById('myAudio');
+            audioElement.muted = false;
+        }
+    </script>
 @endscript
