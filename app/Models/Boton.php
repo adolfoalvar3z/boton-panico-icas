@@ -12,4 +12,5 @@ class Boton extends Model
     protected $table = 'botones';
 
 
+    protected $fillable = ['ip', 'name'];
 }

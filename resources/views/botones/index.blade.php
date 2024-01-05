@@ -1,57 +1,64 @@
-<!DOCTYPE html>
-<html lang="es">
+@extends('layouts.app')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Botón de Pánico</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" type="image/png" href="{{ asset('img/favicon.png') }}">
-    <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-    <!-- CSS Files -->
-    <link id="pagestyle" href=" {{ asset('css/soft-ui-dashboard.css') }}" rel="stylesheet" />
-    <!-- Styles -->
-    <style>
-        .redondo {
-            /*hacer boton redondo*/
-            border-radius: 100%;
-            width: 70px;
-            height: 70px;
-            font-size: 10px;
-            font-weight: bold;
-            border: 2px solid white;
-            /*parpadear tenuemente*/
-            animation: parpadeo 1s infinite;
-            cursor: pointer;
-        }
+@section('content')
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card mb-4">
+                            <div class="card-header pb-0">
+                                <div class="row text-center">
+                                    <div class="col-sm-6 col-lg-6">
+                                        <h6>Botones Registrados</h6>
 
-        .redondo:hover {
-            animation: none;
-        }
+                                    </div>
+                                    <div class="col-sm-6 col-lg-6">
+                                       <a href="{{route('botones.new')}}"><button class="btn btn-primary">Agregar Botón de Pánico</button></a>
+                                    </div>
+                                </div>
 
-        @keyframes parpadeo {
-            0% {
-                opacity: 1;
-            }
+                            </div>
+                            <div class="card-body px-0 pt-0 pb-2">
+                                <div class="table-responsive p-5">
+                                    <table id="example" class="table table-striped ">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>IP</th>
+                                                <th>Name</th>
+                                                <th>Fec. Creación</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($botones as $boton)
+                                                <tr>
+                                                    <td>{{ $boton->id }}</td>
+                                                    <td>{{ $boton->ip }}</td>
+                                                    <td>{{ $boton->name }}</td>
+                                                    <td>{{ $boton->created_at }}</td>
+                                                    <td></td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>IP</th>
+                                                <th>Name</th>
+                                                <th>Hora y Fecha de Creación</th>
+                                                <th></th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
 
-            25% {
-                opacity: 0.10;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        .fs-15 {
-            font-size: 10px;
-        }
-    </style>
-</head>
-
-<body>
-    <livewire:mostrar-boton />
-</body>
-
-</html>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

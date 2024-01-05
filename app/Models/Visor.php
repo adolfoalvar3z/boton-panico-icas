@@ -9,5 +9,6 @@ class Visor extends Model
 {
     use HasFactory;
     protected $table = 'visores';
+    protected $fillable = ['ip', 'name'];
 
 }

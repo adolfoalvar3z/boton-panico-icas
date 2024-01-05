@@ -39,7 +39,7 @@
         <div class="collapse navbar-collapse w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('home') }}">
+                    <a class="nav-link {{ request()->is('home') ? 'active' : '' }}" href="{{ route('home') }}">
                         <div>
                             <i class="fas fa-tachometer-alt fa-2xl"></i>
                         </div>
@@ -47,7 +47,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('boton') }}">
+                    <a class="nav-link {{ request()->is('botones') ? 'active' : '' }}" href="{{ route('botones.index') }}">
                         <div>
                             <i class="fas fa-play fa-2xl"></i>
                         </div>
@@ -55,7 +55,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('visor') }}">
+                    <a class="nav-link {{ request()->is('visores') ? 'active' : '' }}" href="{{ route('visores.index') }}">
                         <div>
                             <i class="fas fa-eye fa-2xl"></i>
                         </div>

@@ -10,7 +10,23 @@ class BotonController extends Controller
 {
     public function index()
     {
-        return view('botones.index');
+        $botones = Boton::all();
+        return view('botones.index', compact('botones'));
+    }
+
+    public function show($boton)
+    {
+        $boton = Boton::find($boton);
+        return view('botones.show', compact('boton'));
+    }
+
+    public function new()
+    {
+        return view('botones.new');
+    }
+    public function boton()
+    {
+        return view('botones.boton');
     }
 
     public function reportar()
