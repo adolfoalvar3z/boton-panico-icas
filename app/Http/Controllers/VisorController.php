@@ -16,16 +16,33 @@ class VisorController extends Controller
         return view('visores.index', compact('visores'));
     }
 
-    public function show($visor)
-    {
-        $visor = Visor::find($visor);
-        return view('visores.show', compact('visor'));
-    }
 
     public function new()
     {
         return view('visores.new');
     }
+
+    public function edit($visor)
+    {
+        $visor = Visor::find($visor);
+        return view('visores.editar', compact('visor'));
+    }
+
+    public function update(Request $request, Visor $visor)
+    {
+        $visor->ip = $request->ip;
+        $visor->name = $request->name;
+        $visor->save();
+        return redirect()->route('visores.index');
+    }
+
+
+    public function destroy(Visor $visor)
+    {
+        $visor->delete();
+        return redirect()->route('visores.index');
+    }
+
     public function visor()
     {
         return view('visores.visor');

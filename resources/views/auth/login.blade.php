@@ -79,14 +79,6 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                                    <p class="mb-4 text-sm mx-auto">
-                                        ¿No tienes Cuenta?
-                                        <a class="text-info text-gradient font-weight-bold"
-                                            href="{{ route('register') }}">Registrate</a>
-
-                                    </p>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">

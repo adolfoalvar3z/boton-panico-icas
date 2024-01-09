@@ -4,16 +4,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VisorController;
 use App\Http\Controllers\BotonController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/', function () {
     return view('auth.login');
-})->middleware('guest');
+})->middleware('guest')->name('inicio');
 
 
 //cargar controlador de liveware
-
 Route::get('/visor', [VisorController::class, 'visor'])->name('visor');
 Route::get('/boton', [BotonController::class, 'boton'])->name('boton');
 
@@ -24,24 +24,30 @@ Route::post('/boton/reportar', [BotonController::class, 'reportar'])->name('repo
 Route::put('/visor/{reporte}/asistir', [VisorController::class, 'asistir'])->name('visor.asistir');
 Route::put('/visor/{reporte}/finalizado', [VisorController::class, 'finalizado'])->name('visor.finalizado');
 
+
 //propiedades de botones
-Route::get('/botones', [BotonController::class, 'index'])->name('botones.index');
-//Route::get('/botones/{boton}', [BotonController::class, 'show'])->name('botones.show');
-Route::get('/botones/new', [BotonController::class, 'new'])->name('botones.new');
-//Route::get('/botones/create', [BotonController::class, 'create'])->name('botones.create');
-//Route::get('/botones/{boton}/edit', [BotonController::class, 'edit'])->name('botones.edit');
-//Route::get('/botones/{boton}/update', [BotonController::class, 'update'])->name('botones.update');
-//Route::get('/botones/{boton}/delete', [BotonController::class, 'delete'])->name('botones.delete');
+Route::get('/botones', [BotonController::class, 'index'])->middleware('auth')->name('botones.index');
+Route::get('/botones/new', [BotonController::class, 'new'])->middleware('auth')->name('botones.new');
+Route::get('/botones/{boton}/edit', [BotonController::class, 'edit'])->middleware('auth')->name('botones.edit');
+Route::put('/botones/{boton}', [BotonController::class, 'update'])->middleware('auth')->name('botones.update');
+Route::delete('/botones/{boton}/destroy', [BotonController::class, 'destroy'])->middleware('auth')->name('botones.destroy');
+
+
+//usuarios
+Route::get('/usuarios', [UserController::class, 'index'])->middleware('auth')->name('usuarios.index');
+Route::get('/usuarios/new', [UserController::class, 'new'])->middleware('auth')->name('usuarios.new');
+Route::get('/usuarios/{usuario}/edit', [UserController::class, 'edit'])->middleware('auth')->name('usuarios.edit');
+Route::put('/usuarios/{usuario}', [UserController::class, 'update'])->middleware('auth')->name('usuarios.update');
+Route::delete('/usuarios/{usuario}/destroy', [UserController::class, 'destroy'])->middleware('auth')->name('usuarios.destroy');
+
 
 
 //propiedades visores
-Route::get('/visores', [VisorController::class, 'index'])->name('visores.index');
-//Route::get('/visores/{boton}', [VisorController::class, 'show'])->name('visores.show');
-Route::get('/visores/new', [VisorController::class, 'new'])->name('visores.new');
-//Route::get('/visores/create', [VisorController::class, 'create'])->name('visores.create');
-//Route::get('/visores/{boton}/edit', [VisorController::class, 'edit'])->name('visores.edit');
-//Route::get('/visores/{boton}/update', [VisorController::class, 'update'])->name('visores.update');
-//Route::get('/visores/{boton}/delete', [VisorController::class, 'delete'])->name('visores.delete');
+Route::get('/visores', [VisorController::class, 'index'])->middleware('auth')->name('visores.index');
+Route::get('/visores/new', [VisorController::class, 'new'])->middleware('auth')->name('visores.new');
+Route::get('/visores/{visor}/edit', [VisorController::class, 'edit'])->middleware('auth')->name('visores.edit');
+Route::put('/visores/{visor}', [VisorController::class, 'update'])->middleware('auth')->name('visores.update');
+Route::delete('/visores/{visor}/destroy', [VisorController::class, 'destroy'])->middleware('auth')->name('visores.destroy');
 
 Auth::routes();
 

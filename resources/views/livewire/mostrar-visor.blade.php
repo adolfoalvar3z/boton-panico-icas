@@ -34,10 +34,13 @@
                                             </span>
                                             @if ($reporte->status == 'alerta')
                                                 <br>
+                                                @persist('player')
+
                                                 <audio id="myAudio" autoplay loop>
                                                     <source src="{{ asset('alarma.mp3') }}" type="audio/mpeg"
                                                         preload="auto">
                                                 </audio>
+                                                @endpersist
                                             @endif
                                         </td>
                                         <td class="text-center">{{ $reporte->created_at->format('H:i:s d-m-Y') }}</td>

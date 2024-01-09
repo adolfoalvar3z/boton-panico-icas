@@ -27,16 +27,63 @@
         }
 
         @keyframes parpadeo {
-    0% { top: 0px; left: 0px; background: rgba(255, 0, 0, 0.508);  color: white;}
-    14% { top: 0px; left: 0px; background: rgba(255, 166, 0, 0.474); }
-    28% { top: 0px; left: 0px; background: rgba(255, 255, 0, 0.491);  color: black;}
-    42% { top: 0px; left: 0px; background: rgba(0, 255, 0, 0.445); color: black;}
-    57% { top: 0px; left: 0px; background: rgba(0, 0, 255, 0.491); color: white;}
-    71% { top: 0px; left: 0px; background: rgba(76, 0, 130, 0.496);  color: white;}
-    85% { top: 0px; left: 0px; background: rgba(238, 130, 238, 0.559); }
-    100% { top: 0px; left: 0px; background: rgba(255, 0, 0, 0.508);  color: white;}
-}
+            0% {
+                top: 0px;
+                left: 0px;
+                background: rgba(255, 0, 0, 0.508);
+                color: white;
+            }
+
+            14% {
+                top: 0px;
+                left: 0px;
+                background: rgba(255, 166, 0, 0.474);
+            }
+
+            28% {
+                top: 0px;
+                left: 0px;
+                background: rgba(255, 255, 0, 0.491);
+                color: black;
+            }
+
+            42% {
+                top: 0px;
+                left: 0px;
+                background: rgba(0, 255, 0, 0.445);
+                color: black;
+            }
+
+            57% {
+                top: 0px;
+                left: 0px;
+                background: rgba(0, 0, 255, 0.491);
+                color: white;
+            }
+
+            71% {
+                top: 0px;
+                left: 0px;
+                background: rgba(76, 0, 130, 0.496);
+                color: white;
+            }
+
+            85% {
+                top: 0px;
+                left: 0px;
+                background: rgba(238, 130, 238, 0.559);
+            }
+
+            100% {
+                top: 0px;
+                left: 0px;
+                background: rgba(255, 0, 0, 0.508);
+                color: white;
+            }
+        }
     </style>
+    <meta http-equiv="refresh" content="20">
+
 </head>
 
 <body>

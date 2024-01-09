@@ -24,6 +24,27 @@ class BotonController extends Controller
     {
         return view('botones.new');
     }
+
+    public function edit($boton)
+    {
+        $boton = Boton::find($boton);
+        return view('botones.editar', compact('boton'));
+    }
+
+    public function update(Request $request, Boton $boton)
+    {
+        $boton->ip = $request->ip;
+        $boton->name = $request->name;
+        $boton->save();
+        return redirect()->route('botones.index');
+    }
+
+    public function destroy(Boton $boton)
+    {
+        $boton->delete();
+        return redirect()->route('botones.index');
+    }
+
     public function boton()
     {
         return view('botones.boton');
