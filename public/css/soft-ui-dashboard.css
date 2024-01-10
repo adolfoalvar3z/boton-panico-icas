@@ -26696,3 +26696,89 @@ pre[class*="language-"] {
 }
 
 /*# sourceMappingURL=dashboard-free.css.map */
+.redondo {
+    /*hacer boton redondo*/
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+    font-size: 10px;
+    font-weight: bold;
+    border: 2px solid white;
+    /*parpadear tenuemente*/
+    animation: parpadeoredondo 1s infinite;
+    cursor: pointer;
+}
+
+.redondo:hover {
+    animation: none;
+}
+
+@keyframes parpadeoredondo {
+    0% {
+        opacity: 1;
+    }
+
+    25% {
+        background: rgba(0, 0, 255, 0.491);
+        color: white;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.fs-15 {
+    font-size: 10px;
+}
+.parpadeos {
+    top: 0px;
+    left: 0px;
+    background-color: rgb(255, 68, 68);
+    animation: parpadeogay 7s infinite;
+    cursor: pointer;
+}
+
+.parpadeos:hover {
+    animation: none;
+}
+
+@keyframes parpadeogay {
+    0% {
+        background: rgba(255, 0, 0, 0.508);
+        color: white;
+    }
+
+    14% {
+        background: rgba(255, 166, 0, 0.474);
+    }
+
+    28% {
+        background: rgba(255, 255, 0, 0.491);
+        color: black;
+    }
+
+    42% {
+        background: rgba(0, 255, 0, 0.445);
+        color: black;
+    }
+
+    57% {
+        background: rgba(0, 0, 255, 0.491);
+        color: white;
+    }
+
+    71% {
+        background: rgba(76, 0, 130, 0.496);
+        color: white;
+    }
+
+    85% {
+        background: rgba(238, 130, 238, 0.559);
+    }
+
+    100% {
+        background: rgba(255, 0, 0, 0.508);
+        color: white;
+    }
+}

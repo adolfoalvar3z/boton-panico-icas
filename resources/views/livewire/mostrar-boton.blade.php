@@ -20,9 +20,9 @@
 
                 @case('finalizado')
 
-                @default
-                    @if (optional($boton)->ip == $ip)
-                        <form action="{{ route('reportar') }}" method="post" enctype="multipart/form-data">
+                    @default
+                        @if (optional($boton)->ip == $ip)
+                            <form action="{{ route('reportar') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <button type="submit" class="text-white bg-gradient-danger redondo">ALERTAR</button>
                             </form>

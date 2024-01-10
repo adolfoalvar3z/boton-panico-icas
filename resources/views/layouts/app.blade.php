@@ -179,13 +179,13 @@
     <script src="{{ asset('datatables/datatables.min.js') }}"></script>
 
     <script>
-        var url = "{{ asset('datatables/es-ES.json') }}"; // Adjust path if needed
+        var url = "{{ asset('datatables/es-ES.json') }}";
         var table = new DataTable('#example', {
             language: {
                 url: url,
             },
             pageLength: 20,
-
+            order: [[ 0, "desc" ]] // Ordenar por la ultima columna (ID) en orden ascendente
         });
     </script>
     <script src="{{ asset('js/core/popper.min.js') }}"></script>

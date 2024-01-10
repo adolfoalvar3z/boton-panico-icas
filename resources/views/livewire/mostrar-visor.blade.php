@@ -34,9 +34,10 @@
                                             </span>
                                             @if ($reporte->status == 'alerta')
                                                 @persist('player')
-                                                <audio id="myAudio" autoplay loop>
-                                                    <source src="{{ asset('alarma.mp3') }}" type="audio/mpeg" preload="auto">
-                                                </audio>
+                                                    <audio id="myAudio" autoplay loop>
+                                                        <source src="{{ asset('alarma.mp3') }}" type="audio/mpeg"
+                                                            preload="auto">
+                                                    </audio>
                                                 @endpersist
                                             @endif
                                         </td>
@@ -44,11 +45,13 @@
 
                                         <td class="align-middle text-center">
                                             @if ($reporte->status == 'alerta')
-                                                <button wire:click="asistir({{ $reporte->id }})" class="btn btn-warning bg-gradient-warning">
+                                                <button wire:click="asistir({{ $reporte->id }})"
+                                                    class="btn btn-warning bg-gradient-warning">
                                                     Asistir
                                                 </button>
                                             @elseif ($reporte->status == 'asistencia')
-                                                <button wire:click="finalizar({{ $reporte->id }})" class="btn btn-success bg-gradient-success">
+                                                <button wire:click="finalizar({{ $reporte->id }})"
+                                                    class="btn btn-success bg-gradient-success">
                                                     Finalizar Reporte
                                                 </button>
                                             @endif
