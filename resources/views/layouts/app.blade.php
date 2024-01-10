@@ -21,6 +21,7 @@
     <link href="{{ asset('datatables/datatables.min.css') }}" rel="stylesheet">
     <!-- CSS Files -->
     <link id="pagestyle" href=" {{ asset('css/soft-ui-dashboard.css') }}" rel="stylesheet" />
+    @livewireStyles
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -208,6 +209,9 @@
 
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{ asset('js/soft-ui-dashboard.min.js') }}'"></script>
+    @livewireScripts
+
+
 </body>
 
 </html>
