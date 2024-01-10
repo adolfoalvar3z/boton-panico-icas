@@ -30,10 +30,16 @@ class VisorController extends Controller
 
     public function update(Request $request, Visor $visor)
     {
-        $visor->ip = $request->ip;
-        $visor->name = $request->name;
-        $visor->save();
-        return redirect()->route('visores.index');
+        try {
+            $visor->ip = $request->ip;
+            $visor->name = $request->name;
+            $visor->save();
+
+            return redirect()->route('visores.index');
+        } catch (\Exception $e) {
+            // Aquí puedes manejar el error como quieras. Por ejemplo, puedes redirigir al usuario a una página de error y mostrarle el mensaje de error.
+            return redirect()->back()->withErrors(['error' => 'Error al actualizar el visor: ' . $e->getMessage()]);
+        }
     }
 
 
@@ -48,21 +54,7 @@ class VisorController extends Controller
         return view('visores.visor');
     }
 
-    public function asistir(Reporte $reporte)
-    {
-        $ip = $_SERVER['REMOTE_ADDR'];
-        $nombre_maquina_asiste = Visor::select('name')->where('ip', $ip)->first();
-        $reporte->ip_asiste = $ip;
-        $reporte->nombre_maquina_asiste = $nombre_maquina_asiste->name;
-        $reporte->status = 'asistencia';
-        $reporte->save();
-        return redirect()->route('visor');
-    }
 
-    public function finalizado(Reporte $reporte)
-    {
-        $reporte->status = 'finalizado';
-        $reporte->save();
-        return redirect()->route('visor');
-    }
+
+
 }

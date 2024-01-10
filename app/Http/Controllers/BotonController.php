@@ -33,10 +33,20 @@ class BotonController extends Controller
 
     public function update(Request $request, Boton $boton)
     {
-        $boton->ip = $request->ip;
-        $boton->name = $request->name;
-        $boton->save();
-        return redirect()->route('botones.index');
+        try {
+            $validatedData = $request->validate([
+                'ip' => 'required|ip',
+                'name' => 'required|max:255',
+            ]);
+
+            $boton->ip = $validatedData['ip'];
+            $boton->name = $validatedData['name'];
+            $boton->save();
+
+            return redirect()->route('botones.index');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => 'Error al actualizar el botón: ' . $e->getMessage()]);
+        }
     }
 
     public function destroy(Boton $boton)

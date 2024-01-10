@@ -11,30 +11,18 @@
         <div class="col-5">
             @switch(optional($reporte)->status)
                 @case('alerta')
-                    @if (optional($boton)->ip == $ip)
-                        <span class="fw-bolder text-center">REPORTADO</span>
-                        <br>
-                        <span class="fs-2 text-center">🚨🚨🚨</span>
-                    @else
-                        <p class="fs-1">🚩</p>
-                    @endif
+                    {!! $this->mostrarBoton($boton, $ip, 'REPORTADO', '🚨🚨🚨', '🚩') !!}
                 @break
 
                 @case('asistencia')
-                    @if (optional($boton)->ip == $ip)
-                        <span class="fw-bolder text-center">EN CAMINO</span>
-                        <br>
-                        <span class="fs-2 text-center">👮🏻👮🏻‍♂️</span>
-                    @else
-                        <p class="fs-1">🚩</p>
-                    @endif
+                    {!! $this->mostrarBoton($boton, $ip, 'EN CAMINO', '👮🏻👮🏻‍♂️', '🚩') !!}
                 @break
 
                 @case('finalizado')
 
-                    @default
-                        @if (optional($boton)->ip == $ip)
-                            <form action="{{ route('reportar') }}" method="post" enctype="multipart/form-data">
+                @default
+                    @if (optional($boton)->ip == $ip)
+                        <form action="{{ route('reportar') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <button type="submit" class="text-white bg-gradient-danger redondo">ALERTAR</button>
                             </form>

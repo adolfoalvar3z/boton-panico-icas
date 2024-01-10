@@ -27,10 +27,11 @@ class UserController extends Controller
     {
         $usuario->name = $request->name;
         $usuario->email = $request->email;
-        if ($request->password != null && !empty($request->password)):
-            $usuario->password = $request->password;
-        endif;
+        if (!empty($request->password)) {
+            $usuario->password = bcrypt($request->password);
+        }
         $usuario->save();
+
         return redirect()->route('usuarios.index');
     }
     public function destroy(User $usuario)

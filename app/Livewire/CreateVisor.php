@@ -16,14 +16,20 @@ class CreateVisor extends Component
 
     public function save()
     {
-        $this->validate();
+        try {
+            $this->validate();
 
-        Visor::create(
-            $this->only(['ip', 'name'])
-        );
+            Visor::create(
+                $this->only(['ip', 'name'])
+            );
 
-        return $this->redirect('/visores');
+            return $this->redirect('/visores');
+        } catch (\Exception $e) {
+            // Aquí puedes manejar el error como quieras. Por ejemplo, puedes mostrar un mensaje de error al usuario.
+            session()->flash('error', 'Error al crear el visor: ' . $e->getMessage());
+        }
     }
+
     public function render()
     {
         return view('livewire.create-visor');

@@ -33,12 +33,9 @@
                                                 class="badge badge-sm bg-gradient-{{ $reporte->status == 'alerta' ? 'danger' : 'warning' }}">{{ $reporte->status }}
                                             </span>
                                             @if ($reporte->status == 'alerta')
-                                                <br>
                                                 @persist('player')
-
                                                 <audio id="myAudio" autoplay loop>
-                                                    <source src="{{ asset('alarma.mp3') }}" type="audio/mpeg"
-                                                        preload="auto">
+                                                    <source src="{{ asset('alarma.mp3') }}" type="audio/mpeg" preload="auto">
                                                 </audio>
                                                 @endpersist
                                             @endif
@@ -47,23 +44,13 @@
 
                                         <td class="align-middle text-center">
                                             @if ($reporte->status == 'alerta')
-                                            <form action="{{route('visor.asistir', $reporte->id)}}" method="post">
-                                                @csrf
-                                                @method('put')
-                                                <button type="submit" class="btn btn-warning bg-gradient-warning">
+                                                <button wire:click="asistir({{ $reporte->id }})" class="btn btn-warning bg-gradient-warning">
                                                     Asistir
                                                 </button>
-                                            </form>
-                                            @endif
-
-                                            @if ($reporte->status == 'asistencia')
-                                            <form action="{{route('visor.finalizado', $reporte->id)}}" method="post">
-                                                @csrf
-                                                @method('put')
-                                                <button type="submit" class="btn btn-success bg-gradient-success">
+                                            @elseif ($reporte->status == 'asistencia')
+                                                <button wire:click="finalizar({{ $reporte->id }})" class="btn btn-success bg-gradient-success">
                                                     Finalizar Reporte
                                                 </button>
-                                            </form>
                                             @endif
 
                                         </td>

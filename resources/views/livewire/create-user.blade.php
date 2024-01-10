@@ -1,4 +1,9 @@
 <div class="container">
+    @if (session()->has('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
     <div class="row">
         <div class="col-md-6 offset-md-3">
             {{-- The best athlete wants his opponent at his best. --}}

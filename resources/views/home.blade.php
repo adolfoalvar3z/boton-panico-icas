@@ -34,8 +34,8 @@
                                                     <td>{{ $reporte->nombre_maquina_asiste }}</td>
                                                     <td>{{ $reporte->ip_asiste }}</td>
                                                     <td>{{ $reporte->status }}</td>
-                                                    <td>{{ $reporte->created_at->format('d-m-Y H:i:s') }}</td>
-                                                    <td>{{ $reporte->updated_at->format('d-m-Y H:i:s') }}</td>
+                                                    <td>{{ optional($reporte->created_at)->format('d-m-Y H:i:s') }}</td>
+                                                    <td>{{ optional($reporte->updated_at)->format('d-m-Y H:i:s') }}</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
