@@ -1,6 +1,6 @@
 <div wire:poll class="container">
     <div class="row justify-content-between text-black">
-        <div class="col">
+        <div class="col-6">
             <span class="fw-bolder">IP: {{ $ip }}</span> <br>
             <span class="">{{ $boton != null ? $boton->name : 'Máquina no válida ❌' }}</span> <br>
             <span class="fw-bolder">
@@ -8,10 +8,10 @@
             </span>
         </div>
 
-        <div class="col-5">
+        <div class="col-6">
             @switch(optional($reporte)->status)
                 @case('alerta')
-                    {!! $this->mostrarBoton($boton, $ip, 'REPORTADO', '🚨🚨🚨', '🚩') !!}
+                    {!! $this->mostrarBoton($boton, $ip, 'REPORTADO', '🚨🚨', '🚩') !!}
                 @break
 
                 @case('asistencia')
@@ -22,9 +22,8 @@
 
                     @default
                         @if (optional($boton)->ip == $ip)
-                            <form action="{{ route('reportar') }}" method="post" enctype="multipart/form-data">
-                                @csrf
-                                <button type="submit" class="text-white bg-gradient-danger redondo">ALERTAR</button>
+                            <form wire:submit="reportar()" >
+                                <button type="submit" wire:loading.attr="disabled" class="text-white bg-gradient-danger redondo">SOS</button>
                             </form>
                         @else
                             <p class="fs-1">🚩</p>

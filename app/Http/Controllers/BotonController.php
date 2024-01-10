@@ -60,7 +60,7 @@ class BotonController extends Controller
         return view('botones.boton');
     }
 
-    public function reportar()
+    public function reportar(Request $request)
     {
         $ip = $_SERVER['REMOTE_ADDR'];
         $nombre_maquina_reporta = Boton::select('name')->where('ip', $ip)->first();
@@ -69,6 +69,5 @@ class BotonController extends Controller
         $reporte->ip_reporta = $ip;
         $reporte->status = "alerta";
         $reporte->save();
-        return redirect()->route('boton');
     }
 }

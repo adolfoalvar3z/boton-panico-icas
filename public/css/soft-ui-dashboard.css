@@ -26699,11 +26699,12 @@ pre[class*="language-"] {
 .redondo {
     /*hacer boton redondo*/
     border-radius: 100%;
-    width: 80px;
-    height: 80px;
-    font-size: 10px;
+    width: 90px;
+    height: 90px;
+    font-size: 28px;
+    text-shadow: #000 5px 5px 3px;
     font-weight: bold;
-    border: 2px solid white;
+    border: 4px solid #ff4500;
     /*parpadear tenuemente*/
     animation: parpadeoredondo 1s infinite;
     cursor: pointer;
@@ -26721,6 +26722,8 @@ pre[class*="language-"] {
     25% {
         background: rgba(0, 0, 255, 0.491);
         color: white;
+        border: 4px solid #0057f7;
+
     }
 
     100% {

@@ -20,11 +20,6 @@ Route::get('/boton', [BotonController::class, 'boton'])->name('boton');
 //reportar
 Route::post('/boton/reportar', [BotonController::class, 'reportar'])->name('reportar');
 
-//asistir reporte
-Route::put('/visor/{reporte}/asistir', [VisorController::class, 'asistir'])->name('visor.asistir');
-Route::put('/visor/{reporte}/finalizado', [VisorController::class, 'finalizado'])->name('visor.finalizado');
-
-
 //propiedades de botones
 Route::get('/botones', [BotonController::class, 'index'])->middleware('auth')->name('botones.index');
 Route::get('/botones/new', [BotonController::class, 'new'])->middleware('auth')->name('botones.new');
@@ -32,15 +27,12 @@ Route::get('/botones/{boton}/edit', [BotonController::class, 'edit'])->middlewar
 Route::put('/botones/{boton}', [BotonController::class, 'update'])->middleware('auth')->name('botones.update');
 Route::delete('/botones/{boton}/destroy', [BotonController::class, 'destroy'])->middleware('auth')->name('botones.destroy');
 
-
 //usuarios
 Route::get('/usuarios', [UserController::class, 'index'])->middleware('auth')->name('usuarios.index');
 Route::get('/usuarios/new', [UserController::class, 'new'])->middleware('auth')->name('usuarios.new');
 Route::get('/usuarios/{usuario}/edit', [UserController::class, 'edit'])->middleware('auth')->name('usuarios.edit');
 Route::put('/usuarios/{usuario}', [UserController::class, 'update'])->middleware('auth')->name('usuarios.update');
 Route::delete('/usuarios/{usuario}/destroy', [UserController::class, 'destroy'])->middleware('auth')->name('usuarios.destroy');
-
-
 
 //propiedades visores
 Route::get('/visores', [VisorController::class, 'index'])->middleware('auth')->name('visores.index');
