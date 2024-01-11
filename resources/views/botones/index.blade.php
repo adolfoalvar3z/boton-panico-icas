@@ -15,7 +15,7 @@
                                     </div>
                                     <div class="col-sm-6 col-lg-6">
                                         <a href="{{ route('botones.new') }}">
-                                            <button class="btn btn-primary">Agregar Botón
+                                            <button class="btn btn-primary btn-lg">Agregar Botón
                                                 de Pánico
                                             </button>
                                         </a>
@@ -25,7 +25,7 @@
                             </div>
                             <div class="card-body px-0 pt-0 pb-2">
                                 <div class="table-responsive p-5">
-                                    <table id="example" class="table table-striped ">
+                                    <table id="example" class="table table-sm table-hover">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -37,29 +37,43 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($botones as $boton)
-                                                <tr>
+                                                <tr class="{{$boton->deleted_at == null ? '' : 'text-white bg-dark'}}">
                                                     <td>{{ $boton->id }}</td>
                                                     <td>{{ $boton->ip }}</td>
                                                     <td>{{ $boton->name }}</td>
                                                     <td>{{ $boton->created_at }}</td>
                                                     <td>
-                                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                                             <a href="{{ route('botones.edit', $boton->id) }}">
-                                                                <button class="btn btn-warning" alt="Editar Registro"
-                                                                    title="Editar Registro">
+                                                                <button class="btn btn-outline-warning"
+                                                                alt="Editar Registro"
+                                                                title="Editar Registro">
                                                                     <i class="fas fa-pen fa-2xl"></i>
                                                                 </button>
                                                             </a>
+                                                            @if(!$boton->deleted_at)
+
                                                             <form action="{{ route('botones.destroy', $boton->id) }}"
                                                                 method="post">
                                                                 @csrf
                                                                 @method('delete')
-                                                                <button class="btn btn-danger" alt="Eliminar"
+                                                                <button class="btn btn-outline-danger" alt="Eliminar"
                                                                     title="Eliminar">
                                                                     <i class="fas fa-trash fa-2xl"></i>
                                                                 </button>
                                                             </form>
-
+                                                            @endif
+                                                            @if($boton->deleted_at)
+                                                            <form action="{{ route('botones.revive', $boton->id) }}"
+                                                                method="post">
+                                                                @csrf
+                                                                @method('put')
+                                                                <button class="btn btn-outline-info" alt="Revivir"
+                                                                    title="Revivir">
+                                                                    <i class="fas fa-arrow-up fa-2xl"></i>
+                                                                </button>
+                                                            </form>
+                                                            @endif
                                                         </div>
 
                                                     </td>

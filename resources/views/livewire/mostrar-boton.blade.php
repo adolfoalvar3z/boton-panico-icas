@@ -32,7 +32,7 @@
 
             </div>
             <div class="col-12 text-center fw-light">
-                <span class="fs-15">Informática Corte de Apelaciones de Santiago</span>
+                <span class="fs-15">- Informática Corte de Apelaciones de Santiago - Unidad de Servicios - </span>
             </div>
         </div>
     </div>

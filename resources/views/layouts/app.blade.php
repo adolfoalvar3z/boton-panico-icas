@@ -165,9 +165,7 @@
                     <div class="row align-items-center justify-content-lg-between">
                         <div class="col-lg-12 mb-lg-0 mb-4">
                             <div class="copyright text-center text-sm text-muted text-lg-start">
-
-                                - Desarrollado por Equipo de Informática de la Corte de Apelaciones de Informática -
-                                Unidad de Servicios -
+                                - Informática Corte de Apelaciones de Santiago - Unidad de Servicios -
                             </div>
                         </div>
                     </div>
@@ -193,7 +191,6 @@
     <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/plugins/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('js/plugins/smooth-scrollbar.min.js') }}"></script>
-    <script src="{{ asset('js/plugins/chartjs.min.js') }}"></script>
 
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
@@ -208,7 +205,6 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="{{ asset('js/soft-ui-dashboard.min.js') }}'"></script>
     @livewireScripts
 
 

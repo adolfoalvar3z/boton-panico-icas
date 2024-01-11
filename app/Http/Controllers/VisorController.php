@@ -12,10 +12,9 @@ class VisorController extends Controller
 
     public function index()
     {
-        $visores = Visor::all();
+        $visores = Visor::withTrashed()->get();
         return view('visores.index', compact('visores'));
     }
-
 
     public function new()
     {
@@ -49,12 +48,15 @@ class VisorController extends Controller
         return redirect()->route('visores.index');
     }
 
+    public function revive($visor)
+    {
+        $visor = Visor::onlyTrashed()->where('id', $visor)->first(); // Recuperar el botón eliminado
+        $visor->restore(); // Restaurar el botón (establece deleted_at a null)
+        return redirect()->route('visores.index');
+    }
+
     public function visor()
     {
         return view('visores.visor');
     }
-
-
-
-
 }

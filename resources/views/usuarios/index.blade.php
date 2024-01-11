@@ -14,14 +14,14 @@
 
                                     </div>
                                     <div class="col-sm-6 col-lg-6">
-                                        <a href="{{ route('usuarios.new') }}"><button class="btn btn-success">Agregar Nuevo
+                                        <a href="{{ route('usuarios.new') }}"><button class="btn btn-success btn-lg">Agregar Nuevo
                                                 Usuario</button></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-body px-0 pt-0 pb-2">
                                 <div class="table-responsive p-5">
-                                    <table id="example" class="table table-striped " wire:loading>
+                                    <table id="example" class="table table-sm table-hover">
                                         <thead>
                                             <tr>
                                                 <th>Nombre</th>
@@ -34,11 +34,10 @@
                                                 <tr>
                                                     <td>{{ $user->name }}</td>
                                                     <td>{{ $user->email }}</td>
-
                                                     <td>
-                                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                                             <a href="{{ route('usuarios.edit', $user->id) }}"> <button
-                                                                    class="btn btn-warning" alt="Editar Registro"
+                                                                    class="btn btn-outline-warning" alt="Editar Registro"
                                                                     title="Editar Registro">
                                                                     <i class="fas fa-pen fa-2xl"></i>
                                                                 </button></a>
@@ -46,10 +45,9 @@
                                                                 method="post">
                                                                 @csrf
                                                                 @method('delete')
-                                                                <button class="btn btn-danger" alt="Eliminar"
+                                                                <button class="btn btn-outline-danger" alt="Eliminar"
                                                                     title="Eliminar">
                                                                     <i class="fas fa-trash fa-2xl"></i>
-
                                                                 </button>
                                                             </form>
                                                         </div>

@@ -10,7 +10,7 @@ class BotonController extends Controller
 {
     public function index()
     {
-        $botones = Boton::all();
+        $botones = Boton::withTrashed()->get();
         return view('botones.index', compact('botones'));
     }
 
@@ -55,19 +55,15 @@ class BotonController extends Controller
         return redirect()->route('botones.index');
     }
 
+    public function revive($boton)
+    {
+        $boton = Boton::onlyTrashed()->where('id', $boton)->first(); // Recuperar el botón eliminado
+        $boton->restore(); // Restaurar el botón (establece deleted_at a null)
+        return redirect()->route('botones.index');
+    }
+
     public function boton()
     {
         return view('botones.boton');
-    }
-
-    public function reportar(Request $request)
-    {
-        $ip = $_SERVER['REMOTE_ADDR'];
-        $nombre_maquina_reporta = Boton::select('name')->where('ip', $ip)->first();
-        $reporte = new Reporte;
-        $reporte->nombre_maquina_reporta = $nombre_maquina_reporta->name;
-        $reporte->ip_reporta = $ip;
-        $reporte->status = "alerta";
-        $reporte->save();
     }
 }
