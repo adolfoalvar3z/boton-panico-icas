@@ -26698,9 +26698,9 @@ pre[class*="language-"] {
 /*# sourceMappingURL=dashboard-free.css.map */
 .redondo {
     /*hacer boton redondo*/
-    border-radius: 100%;
-    width: 90px;
-    height: 90px;
+    border-radius: 10%;
+    width: 10rem;
+    height: 3.5rem;
     font-size: 28px;
     text-shadow: #000 5px 5px 3px;
     font-weight: bold;

@@ -1,38 +1,36 @@
-<div wire:poll class="container">
-    <div class="row justify-content-between text-black">
-        <div class="col-6">
-            <span class="fw-bolder">IP: {{ $ip }}</span> <br>
+<div wire:poll.keep-alive class="container">
+    <div class="row justify-content-between text-center text-black">
+        <div class="col-12">
+            <span class="fw-bolder">{{ $ip }}</span> <br>
             <span class="">{{ $boton != null ? $boton->name : 'Máquina no válida ❌' }}</span> <br>
-            <span class="fw-bolder">
-                {{ $boton != null ? 'Máquina Válida ✅' : 'Máquina no válida ❌' }}
-            </span>
         </div>
 
-        <div class="col-6">
+        <div class="col-12">
             @switch(optional($reporte)->status)
                 @case('alerta')
-                    {!! $this->mostrarBoton($boton, $ip, 'REPORTADO', '🚨🚨', '🚩') !!}
+                <span class="text-danger">
+                    {!! $this->mostrarBoton($boton, $ip, 'REPORTADO', '🚨', '🚩') !!}
+                </span>
                 @break
 
                 @case('asistencia')
-                    {!! $this->mostrarBoton($boton, $ip, 'EN CAMINO', '👮🏻👮🏻‍♂️', '🚩') !!}
+                <span class="text-info">
+                    {!! $this->mostrarBoton($boton, $ip, 'EN CAMINO', '👮🏻', '🚩') !!}
+                </span>
+
                 @break
 
                 @case('finalizado')
 
                     @default
                         @if (optional($boton)->ip == $ip)
-                            <form wire:submit="reportar()" >
-                                <button type="submit" wire:loading.attr="disabled" class="text-white bg-gradient-danger redondo">SOS</button>
-                            </form>
+                                <button type="button" wire:click="reportar"
+                                wire:loading.attr="disabled" wire:confirm="Está seguro que se está muriendo?" class="text-white bg-gradient-danger redondo">SOS</button>
                         @else
                             <p class="fs-1">🚩</p>
                         @endif
                 @endswitch
 
-            </div>
-            <div class="col-12 text-center fw-light">
-                <span class="fs-15">- Informática Corte de Apelaciones de Santiago - Unidad de Servicios - </span>
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-<div wire:poll class="row">
+<div wire:poll.7s.keep-alive class="row">
     <div class="col-12">
         <div class="card mb-4">
             <div class="card-header pb-0">
@@ -8,6 +8,9 @@
             </div>
             <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-5">
+                    <p class="alert alert-warning" wire:offline>
+                        Whoops, your device has lost connection. The web page you are viewing is offline.
+                    </p>
                     @if ($visor != null)
                         <table class="table align-items-center mb-0">
                             <thead>
