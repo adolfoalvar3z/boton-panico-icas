@@ -1,4 +1,4 @@
-<div wire:poll.keep-alive class="container">
+<div wire:poll.5s.keep-alive class="container">
     <div class="row justify-content-between text-center text-black">
         <div class="col-12">
             <span class="fw-bolder">{{ $ip }}</span> <br>
