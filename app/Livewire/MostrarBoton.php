@@ -26,7 +26,6 @@ class MostrarBoton extends Component
         $reporte->ip_reporta = $ip;
         $reporte->status = "alerta";
         $reporte->save();
-
     }
     public function render()
     {

@@ -98,8 +98,7 @@
             <div class="row">
                 <div class="col-8 mx-auto text-center mt-1">
                     <p class="mb-0 text-secondary">
-                        - Desarrollado por Equipo de Informática de la Corte de Apelaciones de Informática - Unidad de
-                        Servicios -
+                        - Informática Corte de Apelaciones de Santiago - Unidad de Servicios -
                     </p>
                 </div>
             </div>

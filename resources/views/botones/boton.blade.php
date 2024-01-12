@@ -10,7 +10,7 @@
         Botón - Sistema de botón de Pánico ICAS
     </title>
     <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet" />
     <!-- CSS Files -->
     <link href=" {{ asset('css/soft-ui-dashboard.css') }}?{{ date('s') }}" rel="stylesheet" />
     @livewireStyles
