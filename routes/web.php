@@ -37,6 +37,8 @@ Route::get('/visores/{visor}/edit', [VisorController::class, 'edit'])->middlewar
 Route::put('/visores/{visor}', [VisorController::class, 'update'])->middleware('auth')->name('visores.update');
 Route::delete('/visores/{visor}/destroy', [VisorController::class, 'destroy'])->middleware('auth')->name('visores.destroy');
 Route::put('/visores/{boton}/revive', [VisorController::class, 'revive'])->middleware('auth')->name('visores.revive');
+// // obeservacion a incidencia de visor
+
 
 Auth::routes();
 

@@ -37,7 +37,8 @@
 
     <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 "
         id="sidenav-main">
-        <div class="text-center">
+
+        <div class="sidenav-header text-center">
             <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand m-0" href="{{route('inicio')}}">
@@ -46,6 +47,7 @@
                 <span class="ms-1 font-weight-bold">Botón de Pánico ICAS</span>
             </a>
         </div>
+
         <hr class="horizontal dark mt-0">
         <div class="collapse navbar-collapse w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
@@ -86,6 +88,7 @@
         </div>
 
     </aside>
+
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <!-- Navbar -->
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
@@ -107,15 +110,15 @@
                                 Visión Gendarmería
                             </a>
                         </li>
-                        <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-                            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                                <div class="sidenav-toggler-inner">
-                                    <i class="sidenav-toggler-line"></i>
-                                    <i class="sidenav-toggler-line"></i>
-                                    <i class="sidenav-toggler-line"></i>
-                                </div>
-                            </a>
-                        </li>
+            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                </div>
+              </a>
+            </li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
@@ -203,6 +206,7 @@
     </script>
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="{{ asset('js/soft-ui-dashboard.js') }}"></script>
 
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     @livewireScripts

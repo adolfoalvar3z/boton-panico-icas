@@ -44,6 +44,8 @@
                                                     <td>{{ $boton->created_at }}</td>
                                                     <td>
                                                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                        @if(!$boton->deleted_at)
+
                                                             <a href="{{ route('botones.edit', $boton->id) }}">
                                                                 <button class="btn btn-outline-warning"
                                                                 alt="Editar Registro"
@@ -51,6 +53,8 @@
                                                                     <i class="fas fa-pen fa-2xl"></i>
                                                                 </button>
                                                             </a>
+                                                            @endif
+
                                                             @if(!$boton->deleted_at)
 
                                                             <form action="{{ route('botones.destroy', $boton->id) }}"

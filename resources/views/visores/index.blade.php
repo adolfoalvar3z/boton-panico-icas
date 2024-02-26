@@ -40,12 +40,16 @@
                                                     <td>{{ $visor->created_at }}</td>
                                                     <td>
                                                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                        @if(!$visor->deleted_at)
+
                                                             <a href="{{ route('visores.edit', $visor->id) }}">
                                                                 <button class="btn btn-outline-warning" alt="Editar Registro"
                                                                     title="Editar Registro">
                                                                     <i class="fas fa-pen fa-2xl"></i>
                                                                 </button>
                                                             </a>
+                                                            @endif
+
                                                             @if (!$visor->deleted_at)
                                                                 <form action="{{ route('visores.destroy', $visor->id) }}"
                                                                     method="post">

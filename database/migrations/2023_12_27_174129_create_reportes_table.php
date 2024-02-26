@@ -18,6 +18,7 @@ return new class extends Migration
             $table->ipAddress('ip_asiste')->nullable(true);
             $table->string('nombre_maquina_asiste', 100)->nullable(true);
             $table->enum('status', ['alerta', 'asistencia', 'finalizado'])->default('alerta');
+            $table->text('observacion')->nullable(true);
             $table->timestamps();
         });
     }

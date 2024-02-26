@@ -1,4 +1,3 @@
-
 <div class="row">
     <div class="col-12">
         <div class="card mb-4">
@@ -10,7 +9,7 @@
             <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-5">
                     @if ($visor != null)
-                        <table class="table align-items-center mb-0" >
+                        <table class="table align-items-center mb-0">
                             <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-center font-weight-bolder opacity-7">
@@ -51,6 +50,11 @@
                                                     Asistir
                                                 </button>
                                             @elseif ($reporte->status == 'asistencia')
+                                                <a href="">
+                                                    <button class="btn btn-success bg-gradient-primary">
+                                                        Ir a Finalizar Reporte
+                                                    </button>
+                                                </a>
                                                 <button wire:click="finalizar({{ $reporte->id }})"
                                                     class="btn btn-success bg-gradient-success">
                                                     Finalizar Reporte
@@ -69,6 +73,9 @@
         </div>
     </div>
 </div>
+
+
+
 @script
     <script>
         window.onload = function() {
