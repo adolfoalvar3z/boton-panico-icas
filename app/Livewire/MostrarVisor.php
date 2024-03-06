@@ -22,6 +22,7 @@ class MostrarVisor extends Component
     {
         $reporte->status = 'finalizado';
         $reporte->save();
+        return redirect()->route('reporte.visor', [$reporte->id]);
     }
 
     public function render()

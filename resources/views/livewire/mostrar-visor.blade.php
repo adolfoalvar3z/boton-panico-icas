@@ -23,7 +23,7 @@
                                     <th class="text-secondary opacity-7"></th>
                                 </tr>
                             </thead>
-                            <tbody wire:poll.7s.keep-alive>
+                            <tbody wire:poll.5s.keep-alive>
                                 @foreach ($reportes as $reporte)
                                     <tr class="fw-bold {{ $reporte->status == 'alerta' ? 'parpadeos' : '' }}">
                                         <td class="text-center">{{ $reporte->nombre_maquina_reporta }}</td>
@@ -50,11 +50,6 @@
                                                     Asistir
                                                 </button>
                                             @elseif ($reporte->status == 'asistencia')
-                                                <a href="">
-                                                    <button class="btn btn-success bg-gradient-primary">
-                                                        Ir a Finalizar Reporte
-                                                    </button>
-                                                </a>
                                                 <button wire:click="finalizar({{ $reporte->id }})"
                                                     class="btn btn-success bg-gradient-success">
                                                     Finalizar Reporte

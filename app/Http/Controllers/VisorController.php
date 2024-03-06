@@ -21,6 +21,20 @@ class VisorController extends Controller
         return view('visores.new');
     }
 
+    //reporte donde se ingresa observacion de alarma por parte de gendarmería o seguridad
+    public function reportar($reporte)
+    {
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $maquina = Visor::where('ip', $ip)->first();
+        $reporte = Reporte::find($reporte);
+
+        if ($maquina != null){
+            return view('visores.reportar', compact('reporte'));
+        } else {
+            return redirect()->route('inicio');
+        }
+    }
+
     public function edit($visor)
     {
         $visor = Visor::find($visor);

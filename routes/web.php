@@ -13,6 +13,7 @@ Route::get('/', function () {
 
 //cargar controlador de liveware
 Route::get('/visor', [VisorController::class, 'visor'])->name('visor');
+Route::get('/reporte/{reporte}', [VisorController::class, 'reportar'])->name('reporte.visor');
 Route::get('/boton', [BotonController::class, 'boton'])->name('boton');
 
 //propiedades de botones
