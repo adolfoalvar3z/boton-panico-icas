@@ -13,8 +13,9 @@ Route::get('/', function () {
 
 //cargar controlador de liveware
 Route::get('/visor', [VisorController::class, 'visor'])->name('visor');
-Route::get('/reporte/{reporte}', [VisorController::class, 'reportar'])->name('reporte.visor');
 Route::get('/boton', [BotonController::class, 'boton'])->name('boton');
+Route::get('/reporte/{reporte}/edit', [VisorController::class, 'reportar'])->name('reporte.visor');
+Route::put('/reporte/{reporte}', [VisorController::class, 'newReport'])->name('reporte.new');
 
 //propiedades de botones
 Route::get('/botones', [BotonController::class, 'index'])->middleware('auth')->name('botones.index');

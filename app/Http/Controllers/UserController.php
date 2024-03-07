@@ -33,6 +33,7 @@ class UserController extends Controller
         $usuario->save();
         return redirect()->route('usuarios.index');
     }
+
     public function destroy(User $usuario)
     {
         $usuario->delete();

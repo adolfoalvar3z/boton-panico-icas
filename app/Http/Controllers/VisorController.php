@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 class VisorController extends Controller
 {
-    //
 
     public function index()
     {
@@ -28,10 +27,27 @@ class VisorController extends Controller
         $maquina = Visor::where('ip', $ip)->first();
         $reporte = Reporte::find($reporte);
 
-        if ($maquina != null){
+        if ($maquina != null) {
+            if ($reporte->observacion != null) {
+                return redirect()->route('visor');
+            }
             return view('visores.reportar', compact('reporte'));
+
         } else {
             return redirect()->route('inicio');
+        }
+    }
+
+    public function newReport(Request $request, Reporte $reporte)
+    {
+        try {
+            $reporte->observacion = $request->observacion;
+            $reporte->save();
+
+            return redirect()->route('visores.index');
+        } catch (\Exception $e) {
+            // Aquí puedes manejar el error como quieras. Por ejemplo, puedes redirigir al usuario a una página de error y mostrarle el mensaje de error.
+            return redirect()->back()->withErrors(['error' => 'Error al ingresar e: ' . $e->getMessage()]);
         }
     }
 
@@ -54,7 +70,6 @@ class VisorController extends Controller
             return redirect()->back()->withErrors(['error' => 'Error al actualizar el visor: ' . $e->getMessage()]);
         }
     }
-
 
     public function destroy(Visor $visor)
     {
