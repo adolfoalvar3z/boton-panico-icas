@@ -41,13 +41,17 @@ class VisorController extends Controller
     public function newReport(Request $request, Reporte $reporte)
     {
         try {
-            $reporte->observacion = $request->observacion;
+            $validatedData = $request->validate([
+                'observacion' => 'required|max:255',
+            ]);
+
+            $reporte->observacion = $validatedData['observacion'];
             $reporte->save();
 
-            return redirect()->route('visores.index');
+            return redirect()->route('visor');
         } catch (\Exception $e) {
             // Aquí puedes manejar el error como quieras. Por ejemplo, puedes redirigir al usuario a una página de error y mostrarle el mensaje de error.
-            return redirect()->back()->withErrors(['error' => 'Error al ingresar e: ' . $e->getMessage()]);
+            return redirect()->back()->withErrors(['error' => 'Error al ingresar observación e: ' . $e->getMessage()]);
         }
     }
 

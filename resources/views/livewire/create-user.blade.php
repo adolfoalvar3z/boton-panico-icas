@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-6 offset-md-3">
             {{-- The best athlete wants his opponent at his best. --}}
-            <form method="post" action="{{route('reporte.new', $reporte)}}">
+            <form wire:submit="save">
                 @csrf
                 @method('put')
                 <div class="form-group">
