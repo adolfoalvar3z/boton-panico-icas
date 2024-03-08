@@ -32,7 +32,7 @@
                                     <div class="table-responsive p-5">
                                         <div class="row">
                                             <div class="col-md-6 offset-md-3">
-                                                <form method="post" action="{{route('reporte.new', $reporte)}}">
+                                                <form method="post" action="{{ route('reporte.new', $reporte) }}">
                                                     @csrf
                                                     @method('put')
                                                     <div class="form-group">
