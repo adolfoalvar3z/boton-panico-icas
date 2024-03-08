@@ -40,7 +40,6 @@
 
                                                         <textarea type="text" id="observacion" name="observacion" class="form-control" rows="10" required></textarea>
                                                     </div>
-
                                                     <div>
                                                         @error('observacion')
                                                             <span class="error text-danger">{{ $message }}</span>
