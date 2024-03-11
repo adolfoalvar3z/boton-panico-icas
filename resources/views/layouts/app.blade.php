@@ -21,19 +21,20 @@
     <link href="{{ asset('datatables/datatables.min.css') }}" rel="stylesheet">
     <!-- CSS Files -->
     <link id="pagestyle" href=" {{ asset('css/soft-ui-dashboard.css') }}" rel="stylesheet" />
+
     @livewireStyles
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
-    @if($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 "
         id="sidenav-main">
@@ -41,7 +42,7 @@
         <div class="sidenav-header text-center">
             <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href="{{route('inicio')}}">
+            <a class="navbar-brand m-0" href="{{ route('inicio') }}">
                 <img src="{{ asset('img/logo-poder-judicial.png') }}" class="navbar-brand-img h-100" alt="main_logo">
                 <br>
                 <span class="ms-1 font-weight-bold">Botón de Pánico ICAS</span>
@@ -61,7 +62,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('usuarios') ? 'active' : '' }}" href="{{ route('usuarios.index') }}" wire:navigate>
+                    <a class="nav-link {{ request()->is('usuarios') ? 'active' : '' }}"
+                        href="{{ route('usuarios.index') }}" wire:navigate>
                         <div>
                             <i class="fas fa-user-alt fa-2xl"></i>
                         </div>
@@ -69,7 +71,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('botones') ? 'active' : '' }}" href="{{ route('botones.index') }}">
+                    <a class="nav-link {{ request()->is('botones') ? 'active' : '' }}"
+                        href="{{ route('botones.index') }}">
                         <div>
                             <i class="fas fa-play fa-2xl"></i>
                         </div>
@@ -77,7 +80,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('visores') ? 'active' : '' }}" href="{{ route('visores.index') }}">
+                    <a class="nav-link {{ request()->is('visores') ? 'active' : '' }}"
+                        href="{{ route('visores.index') }}">
                         <div>
                             <i class="fas fa-eye fa-2xl"></i>
                         </div>
@@ -110,15 +114,15 @@
                                 Visión Gendarmería
                             </a>
                         </li>
-            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                <div class="sidenav-toggler-inner">
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                </div>
-              </a>
-            </li>
+                        <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                                <div class="sidenav-toggler-inner">
+                                    <i class="sidenav-toggler-line"></i>
+                                    <i class="sidenav-toggler-line"></i>
+                                    <i class="sidenav-toggler-line"></i>
+                                </div>
+                            </a>
+                        </li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
@@ -179,21 +183,32 @@
 
     <!--   Core JS Files   -->
     <script src="{{ asset('datatables/datatables.min.js') }}"></script>
-
     <script>
         var url = "{{ asset('datatables/es-ES.json') }}";
         var table = new DataTable('#example', {
             language: {
                 url: url,
             },
-            pageLength: 20,
-            order: [[ 0, "desc" ]] // Ordenar por la ultima columna (ID) en orden ascendente
+            buttons: [
+                'copy', 'print', 'excelHtml5', 'pdf', 'csvHtml5',
+            ],
+            dom: 'Bfrtip',
+            pageLength: 25,
+            order: [
+                [0, "desc"]
+            ] // Ordenar por la ultima columna (ID) en orden ascendente
         });
     </script>
+    <script src="{{ asset('datatables/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('datatables/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('datatables/vfs_fonts.js') }}"></script>
+
     <script src="{{ asset('js/core/popper.min.js') }}"></script>
     <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/plugins/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('js/plugins/smooth-scrollbar.min.js') }}"></script>
+
+
 
     <script>
         var win = navigator.platform.indexOf('Win') > -1;

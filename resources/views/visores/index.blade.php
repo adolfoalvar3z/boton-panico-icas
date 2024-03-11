@@ -14,7 +14,8 @@
 
                                     </div>
                                     <div class="col-sm-6 col-lg-6">
-                                        <a href="{{ route('visores.new') }}"><button class="btn btn-info btn-lg">Agregar Nuevo
+                                        <a href="{{ route('visores.new') }}"><button class="btn btn-info btn-lg">Agregar
+                                                Nuevo
                                                 Visor</button></a>
                                     </div>
                                 </div>
@@ -40,14 +41,13 @@
                                                     <td>{{ $visor->created_at }}</td>
                                                     <td>
                                                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                                        @if(!$visor->deleted_at)
-
-                                                            <a href="{{ route('visores.edit', $visor->id) }}">
-                                                                <button class="btn btn-outline-warning" alt="Editar Registro"
-                                                                    title="Editar Registro">
-                                                                    <i class="fas fa-pen fa-2xl"></i>
-                                                                </button>
-                                                            </a>
+                                                            @if (!$visor->deleted_at)
+                                                                <a href="{{ route('visores.edit', $visor->id) }}">
+                                                                    <button class="btn btn-outline-warning"
+                                                                        alt="Editar Registro" title="Editar Registro">
+                                                                        <i class="fas fa-pen fa-2xl"></i>
+                                                                    </button>
+                                                                </a>
                                                             @endif
 
                                                             @if (!$visor->deleted_at)
