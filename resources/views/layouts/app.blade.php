@@ -188,6 +188,12 @@
         var table = new DataTable('#example', {
             language: {
                 url: url,
+                "paginate": {
+            "first": "<<",
+            "last": ">>",
+            "next": ">",
+            "previous": "<"
+        }
             },
             buttons: [
                 'copy', 'print', 'excelHtml5', 'pdf', 'csvHtml5',
@@ -202,14 +208,10 @@
     <script src="{{ asset('datatables/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('datatables/pdfmake.min.js') }}"></script>
     <script src="{{ asset('datatables/vfs_fonts.js') }}"></script>
-
     <script src="{{ asset('js/core/popper.min.js') }}"></script>
     <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/plugins/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('js/plugins/smooth-scrollbar.min.js') }}"></script>
-
-
-
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -222,7 +224,6 @@
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="{{ asset('js/soft-ui-dashboard.js') }}"></script>
-
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     @livewireScripts
 
