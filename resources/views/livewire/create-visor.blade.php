@@ -24,7 +24,7 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn btn-primary">Registrar Botón</button>
+                <button type="submit" class="btn btn-primary">Registrar Visor</button>
             </form>
         </div>
     </div>

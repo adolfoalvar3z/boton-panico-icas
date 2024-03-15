@@ -14,9 +14,9 @@
 
                                     </div>
                                     <div class="col-sm-6 col-lg-6">
-                                        <a href="{{ route('visores.new') }}"><button class="btn btn-info btn-lg">Agregar
-                                                Nuevo
-                                                Visor</button></a>
+                                        <a href="{{ route('visores.new') }}">
+                                            <button class="btn btn-info btn-lg">Agregar Nuevo Visor</button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
