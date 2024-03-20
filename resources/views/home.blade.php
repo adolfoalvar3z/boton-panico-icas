@@ -1,15 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    .truncate {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 10px; /* Ajusta el ancho máximo según tus necesidades */
-    }
-</style>
-
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
@@ -32,7 +23,7 @@
                                                 <th>Status</th>
                                                 <th>Hora y Fecha Reporte</th>
                                                 <th>Hora y Fecha Actualización</th>
-                                                <th>observacion</th>
+                                                <th style="width:50px;">Observación</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -46,7 +37,7 @@
                                                     <td>{{ $reporte->status }}</td>
                                                     <td>{{ optional($reporte->created_at)->format('d-m-Y H:i:s') }}</td>
                                                     <td>{{ optional($reporte->updated_at)->format('d-m-Y H:i:s') }}</td>
-                                                    <td class="truncate">{{ $reporte->observacion }}</td>
+                                                    <td>{{ $reporte->observacion }}</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -60,7 +51,7 @@
                                                 <th>Status</th>
                                                 <th>Hora y Fecha Reporte</th>
                                                 <th>Hora y Fecha Actualización</th>
-                                                <th>observacion</th>
+                                                <th style="width:50px;">Observación</th>
                                             </tr>
                                         </tfoot>
                                     </table>

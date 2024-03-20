@@ -1,11 +1,11 @@
 <div class="container">
     <div class="row justify-content-between text-center text-black">
-        <div class="col-12">
+        <div class="col-auto">
             <span class="fw-bolder">{{ $ip }}</span> <br>
             <span class="">{{ $boton != null ? $boton->name : 'Máquina no válida ❌' }}</span> <br>
         </div>
 
-        <div class="col-12">
+        <div class="col-auto">
             @switch(optional($reporte)->status)
                 @case('alerta')
                     <span class="text-danger" wire:poll.5s.keep-alive>
@@ -25,7 +25,7 @@
                         @if (optional($boton)->ip == $ip)
                             <button type="button" wire:click="reportar" wire:loading.attr="disabled"
                                 wire:confirm="Por favor, confirme solicitud de Asistencia"
-                                class="text-white bg-gradient-danger redondo">SOS</button>
+                                class="text-white bg-gradient-danger redondo">ALERTAR</button>
                         @else
                             <p class="fs-1">🚩</p>
                         @endif

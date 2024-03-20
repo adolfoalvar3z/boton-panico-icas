@@ -198,7 +198,11 @@
                 }
             },
             buttons: [
-                'copy', 'print', 'excelHtml5', 'pdf', 'csvHtml5',
+                'copy', 'print', 'excelHtml5', {
+                extend: 'pdfHtml5',
+                orientation: 'landscape', // Orientación horizontal
+                pageSize: 'LEGAL' // Tamaño de página legal
+            }, 'csvHtml5',
             ],
             dom: 'Bfrtip',
             pageLength: 25,

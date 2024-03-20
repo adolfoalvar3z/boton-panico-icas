@@ -38,7 +38,7 @@
                                                     <div class="form-group">
                                                         <label for="name">Observación:</label>
 
-                                                        <textarea type="text" id="observacion" name="observacion" class="form-control" rows="10" required></textarea>
+                                                        <textarea type="text" id="observacion" name="observacion" class="form-control" rows="10" cols="5" required></textarea>
                                                     </div>
                                                     <div>
                                                         @error('observacion')
