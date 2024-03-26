@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" wire:poll.7s.keep-alive>
     <center>
     <div class="row justify-content-between text-center text-white">
         <div class="row">
@@ -13,7 +13,7 @@
                 @case('alerta')
                 <div class="row">
 
-                    <span class="text-danger" wire:poll.5s.keep-alive>
+                    <span class="text-danger" >
                         {!! $this->mostrarBoton($boton, $ip, 'REPORTADO', '🚨', '🚩') !!}
                     </span>
                 </div>
@@ -21,7 +21,7 @@
 
                 @case('asistencia')
                 <div class="row">
-                    <span class="text-info" wire:poll.5s.keep-alive>
+                    <span class="text-info">
                         {!! $this->mostrarBoton($boton, $ip, 'EN CAMINO', '👮🏻', '🚩') !!}
                     </span>
                 </div>
