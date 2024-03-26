@@ -14,6 +14,7 @@
         body {
             display: block;
             margin: 0px;
+            overflow: hidden;
 
         }
 
@@ -141,6 +142,8 @@ span.text-info {
 
         button {
             border-radius: 0;
+            -webkit-app-region:none;
+
         }
 
         button:focus:not(:focus-visible) {
@@ -162,7 +165,8 @@ span.text-info {
         }
 
         .container{
-            width: 340px;
+            width: 346px;
+            -webkit-app-region:drag;
 
             background-color: #1817148d;
             border: 2px solid #a5a5a5;
