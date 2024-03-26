@@ -38,14 +38,7 @@
                                 wire:confirm="Por favor, confirme solicitud de Asistencia"
                                 class="text-white bg-gradient-danger redondo">ALERTAR</button>
                             </center>
-
-                        @else
-                        <center>
-                            <div class="row">🚩</div>
-                        </center>
-
                         </div>
-
                         @endif
                 @endswitch
 
