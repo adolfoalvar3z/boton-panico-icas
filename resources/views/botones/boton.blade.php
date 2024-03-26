@@ -11,6 +11,12 @@
     <!--     Fonts and icons     -->
     <!-- CSS Files -->
     <style>
+        body {
+            display: block;
+            margin: 0px;
+
+        }
+
         .btn-danger:hover,
         .btn.bg-gradient-danger:hover {
             background-color: #ea0606;
@@ -73,7 +79,16 @@
             animation: parpadeoredondo 1s infinite;
             cursor: pointer;
         }
+        button.redondo {
+            /*hacer boton redondo*/
+            text-align: center;
+            border-radius: 10%;
+            width: 250px;
 
+        }
+        center{
+            width: 300px
+        }
         .bg-gradient {
             background-image: var(--bs-gradient) !important;
         }
@@ -86,7 +101,15 @@
             font-weight: 700 !important;
             font-size: 12px
         }
-
+        span.fw-bolder {
+    max-width: 300px;
+}
+span.text-danger {
+    max-width: 300px;
+}
+span.text-info {
+    max-width: 300px;
+}
         @keyframes parpadeoredondo {
             0% {
                 opacity: 1;
@@ -138,13 +161,22 @@
             cursor: pointer;
         }
 
-        .container,
+        .container{
+            width: 340px;
+
+            background-color: #1817148d;
+            border: 2px solid #a5a5a5;
+            border-radius: 10px 100px / 120px;
+            font: white;
+            text-shadow: rgba(12, 12, 12, 0.7) 2px 2px;
+        },
         .container-sm,
         .container-md,
         .container-lg,
         .container-xl,
         .container-xxl {
-            max-width: 1320px;
+
+
         }
 
 
@@ -155,7 +187,6 @@
             flex-wrap: wrap;
             margin-top: calc(-1 * var(--bs-gutter-y));
             margin-right: calc(-.5 * var(--bs-gutter-x));
-            margin-left: calc(-.5 * var(--bs-gutter-x));
         }
 
         .row>* {
